@@ -1,3 +1,6 @@
+import engine.BooleanSearchEngine;
+import engine.Saving;
+
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;

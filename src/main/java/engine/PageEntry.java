@@ -1,3 +1,5 @@
+package engine;
+
 public class PageEntry implements Comparable<PageEntry> {
     private String pdf;
     private int page;
