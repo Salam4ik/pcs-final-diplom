@@ -61,8 +61,8 @@ public class BooleanSearchEngine implements SearchEngine {
             }
             word = word.toLowerCase();
             inputText.add(word);
-            for (var w : stopWords.getStopWord()) inputText.remove(w);
         }
+        for (var w : stopWords.getStopWord()) inputText.remove(w);
         if (inputText.size() == 1) {
             searchingList = infoForSearchWord.get(text.toLowerCase());
         } else {
@@ -76,6 +76,7 @@ public class BooleanSearchEngine implements SearchEngine {
                         pageEntryForDelete.add(i1);
                     }
                 }
+                Collections.reverse(pageEntryForDelete);
                 for (int index : pageEntryForDelete) {
                     searchingList.remove(index);
                 }

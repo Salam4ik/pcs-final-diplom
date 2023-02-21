@@ -10,13 +10,23 @@ public class Client {
     public static void main(String[] args) {
         String host = "127.0.0.1";
         int port = 8989;
+        String input = null;
         Scanner scanner = new Scanner(System.in);
         try (Socket socket = new Socket(host, port);
              PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
              BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
-            System.out.println(in.readLine());
-            out.println(scanner.nextLine());
-            System.out.println(in.readLine());
+            while (true) {
+                System.out.println(in.readLine());
+                input = scanner.nextLine();
+                if (input.equals("end")) {
+                    out.println(input);
+                    System.out.println(in.readLine());
+                    break;
+                } else {
+                    out.println(input);
+                    System.out.println(in.readLine());
+                }
+            }
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
