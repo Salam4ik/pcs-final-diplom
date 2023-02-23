@@ -15,18 +15,10 @@ public class Client {
         try (Socket socket = new Socket(host, port);
              PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
              BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
-            while (true) {
-                System.out.println(in.readLine());
-                input = scanner.nextLine();
-                if (input.equals("end")) {
-                    out.println(input);
-                    System.out.println(in.readLine());
-                    break;
-                } else {
-                    out.println(input);
-                    System.out.println(in.readLine());
-                }
-            }
+            System.out.println(in.readLine());
+            input = scanner.nextLine();
+            out.println(input);
+            System.out.println(in.readLine());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
