@@ -22,10 +22,10 @@ public class Main {
                         PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
                 ) {
                     System.out.println("Новое подключение: " + socket.getPort());
-                    out.println("----------< Введите искомое слово или команду 'end' >----------");
+                    out.println("----------< Введите искомое слово >----------");
                     word = in.readLine();
                         saving.save(engine.search(word), word);
-                        out.println(engine.search(word));
+                        out.println(saving.getObject().get(word));
                 }
             }
         } catch (IOException e) {

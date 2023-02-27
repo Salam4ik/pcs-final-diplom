@@ -24,4 +24,8 @@ public class Saving {
         gson.toJson(object, writer);
         writer.close();
     }
+
+    public JsonObject getObject(){
+        return object;
+    }
 }
